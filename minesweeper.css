@@ -1,0 +1,25 @@
+td.grid-space {
+	width:25px;
+	height:25px;
+	background:#cccccc;
+	cursor:pointer;
+}
+
+td.grid-space.revealed {
+	background:#efefef;
+	text-align:center;
+}
+
+td.grid-space.revealed.number {
+	color:#0000ff;
+}
+
+td.grid-space.revealed.bomb {
+	background:url('bomb.png');
+}
+
+td.grid-space.flagged {
+	text-align:center;
+	font-weight:bold;
+	background:url('flag.png');
+}

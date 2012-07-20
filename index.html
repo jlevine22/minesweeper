@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Minesweeper</title>
+		<link href="minesweeper.css" type="text/css" media="screen" rel="stylesheet" />
+	</head>
+	<body>
+		<p>
+			Board Size:
+			<select id="board_size">
+				<option value="8">8x8</option>
+				<option value="16">16x16</option>
+				<option value="32">32x32</option>
+			</select>
+			Number of Mines <input id="mines" type="number" value="10" min="1" />
+		</p>
+		<p>
+			<a href="#" id="new-game">new game</a> | <a href="#" id="validate">validate</a> | <a href="#" id="cheat">end game and reveal (cheat)</a>
+		</p>
+		<table id="grid" border="1" cellspacing="1" cellpadding="0"></table>
+		<p>
+			Hint: Double click to flag spaces
+		</p>
+		
+		<script language="javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+		<script language="javascript" src="minesweeper.js"></script>
+		<script language="javascript">
+			jQuery(function(){
+				Minesweeper.newGame({
+					grid: $('#grid'),
+					cols: 8,
+					rows: 8,
+					mines: 10
+				});
+				
+				$('#new-game').click(function(){
+					Minesweeper.newGame({
+						cols: $('#board_size').children(':selected').val(),
+						rows: $('#board_size').children(':selected').val(),
+						mines: $('#mines').val()
+					});
+				});
+				
+				$('#cheat').click(function(){
+					Minesweeper.cheat();
+				});
+				
+				$('#validate').click(function(){
+					Minesweeper.validate();
+				});
+			});
+		</script>
+	</body>
+</html>
